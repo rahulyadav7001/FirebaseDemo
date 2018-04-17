@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "382109685165",
+    "firebase_url": "https://ryandrofirebasedemo.firebaseio.com",
+    "project_id": "ryandrofirebasedemo",
+    "storage_bucket": "ryandrofirebasedemo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:382109685165:android:e41f20b45bd66547",
+        "android_client_info": {
+          "package_name": "com.ryandro.firebasedemo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "382109685165-utb6bsss1afc8gi35f5upq1pi0muh0k3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFVHyU3m44ELMQqYE0mbYTQ0axlxilSbU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
