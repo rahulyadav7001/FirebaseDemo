@@ -43,7 +43,6 @@ public class FcmNotificationActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Push notification: " + message, Toast.LENGTH_LONG).show();
                     tv_msz.setText(message);
                 }
-
             }
         };
 
