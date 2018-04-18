@@ -1,4 +1,6 @@
 apply plugin: 'com.android.application'
+apply plugin: 'io.fabric'
+
 
 android {
     compileSdkVersion 27
@@ -27,9 +29,15 @@ dependencies {
     implementation 'com.google.firebase:firebase-core:12.0.1'
     //for Messaging and Notification thing
     implementation 'com.google.firebase:firebase-messaging:12.0.1'
+    // for Crash Report (Old version of crashlytics and its goin to depericated soon)
+    implementation 'com.google.firebase:firebase-crash:12.0.1'
+    // For Crashlytics
+    implementation 'com.crashlytics.sdk.android:crashlytics:2.9.1'
+
     testImplementation 'junit:junit:4.12'
 
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
 }
 apply plugin: 'com.google.gms.google-services'
+

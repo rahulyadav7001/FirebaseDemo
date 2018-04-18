@@ -10,10 +10,11 @@ import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.ryandro.firebasedemo.R;
 import com.ryandro.firebasedemo.app.Config;
@@ -21,8 +22,8 @@ import com.ryandro.firebasedemo.app.Config;
 public class FcmNotificationActivity extends AppCompatActivity {
     BroadcastReceiver broadcastReceiver;
     private TextView tv_regID, tv_msz;
-    private String TAG ;
-
+    private String TAG;
+    private Button btn_registerEvent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,24 +31,30 @@ public class FcmNotificationActivity extends AppCompatActivity {
         tv_regID = (TextView) findViewById(R.id.tv_id);
         tv_msz = (TextView) findViewById(R.id.tv_msz);
         TAG = FcmNotificationActivity.class.getSimpleName();
+        btn_registerEvent = (Button) findViewById(R.id.btn_registerEvent);
 
         broadcastReceiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
                 if (intent.getAction().equals(Config.REGISTRATION_COMPLETE)) {
                     FirebaseMessaging.getInstance().subscribeToTopic(Config.TOPIC_GLOBAL);
-                displayFireBaseRegId();
-                }
-                else if(intent.getAction().equals(Config.PUSH_NOTIFICAATION)){
+                    displayFireBaseRegId();
+                } else if (intent.getAction().equals(Config.PUSH_NOTIFICAATION)) {
                     String message = intent.getStringExtra("message");
                     Toast.makeText(getApplicationContext(), "Push notification: " + message, Toast.LENGTH_LONG).show();
                     tv_msz.setText(message);
                 }
             }
         };
-
-
     }
+        /*btn_registerEvent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+        });*/
+
+
+//    }
 
     private void displayFireBaseRegId() {
         SharedPreferences pref = getApplicationContext().getSharedPreferences(Config.SHARED_PREF, 0);
@@ -64,8 +71,8 @@ public class FcmNotificationActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        LocalBroadcastManager.getInstance(this).registerReceiver(broadcastReceiver,new IntentFilter(Config.PUSH_NOTIFICAATION));
-        LocalBroadcastManager.getInstance(this).registerReceiver(broadcastReceiver,new IntentFilter(Config.REGISTRATION_COMPLETE));
+        LocalBroadcastManager.getInstance(this).registerReceiver(broadcastReceiver, new IntentFilter(Config.PUSH_NOTIFICAATION));
+        LocalBroadcastManager.getInstance(this).registerReceiver(broadcastReceiver, new IntentFilter(Config.REGISTRATION_COMPLETE));
 
     }
 

@@ -1,13 +1,15 @@
-package com.ryandro.firebasedemo;
+package com.ryandro.firebasedemo.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import com.google.firebase.analytics.FirebaseAnalytics;
+import com.ryandro.firebasedemo.Food;
+import com.ryandro.firebasedemo.R;
 
 import java.util.Random;
 
-public class MainActivity extends AppCompatActivity {
+public class FirebaseAnlyticsActivity extends AppCompatActivity {
 
     private FirebaseAnalytics firebaseAnalytics;
     private String[] foods;
@@ -19,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
         foods = new String[]{"Apple", "Banana", "Grape", "Mango", "Orange"};
 
-        firebaseAnalytics = FirebaseAnalytics.getInstance(MainActivity.this);
+        firebaseAnalytics = FirebaseAnalytics.getInstance(FirebaseAnlyticsActivity.this);
         Food food = new Food();
         food.setId(12001);
         food.setName(foods[randomIndex()]);
